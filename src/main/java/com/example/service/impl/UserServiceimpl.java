@@ -17,4 +17,16 @@ public class UserServiceimpl implements UserService {
     public List<User> findAll() {
         return userMapper.getUsers();
     }
+
+
+    @Override
+    public User findUserById(Integer id) {
+        return userMapper.findUserById(id);
+    }
+
+    @Override
+    public User findByUsername(User user) {
+        String username = user.getUsername();
+        return userMapper.findByUsername(username);
+    }
 }
