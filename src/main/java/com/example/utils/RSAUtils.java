@@ -12,7 +12,6 @@ import java.security.spec.X509EncodedKeySpec;
 /**
  * 中文类名: RSA密码加密工具类
  * 中文描述: RSA密码加密工具类
- *
  */
 public class RSAUtils {
     /**
@@ -167,32 +166,5 @@ public class RSAUtils {
         signature.initVerify(key);
         signature.update(srcData.getBytes());
         return signature.verify(Base64Utils.decode(sign.getBytes()));
-    }
-
-    //  逻辑：前端获取publickey，用公钥对密码进行编码加密，后端获取密码，用相对应的私钥解密加密数据，与数据库比对密码是否一致
-    public static void main(String[] args) {
-        try {
-            // 生成密钥对
-            KeyPair keyPair = getKeyPair();
-            String privateKey = new String(Base64Utils.encode(keyPair.getPrivate().getEncoded()));
-            String publicKey = new String(Base64Utils.encode(keyPair.getPublic().getEncoded()));
-            System.out.println("私钥:" + privateKey);
-            System.out.println("公钥:" + publicKey);
-            // RSA加密
-            String data = "123456";
-            String encryptData = encrypt(data, getPublicKey(publicKey));
-            System.out.println("加密后内容:" + encryptData);
-            // RSA解密
-            String decryptData = decrypt(encryptData, getPrivateKey(privateKey));
-            System.out.println("解密后内容:" + decryptData);
-            // RSA签名
-            String sign = sign(data, getPrivateKey(privateKey));
-            // RSA验签
-            boolean result = verify(data, getPublicKey(publicKey), sign);
-            System.out.print("验签结果:" + result);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.print("加解密异常");
-        }
     }
 }

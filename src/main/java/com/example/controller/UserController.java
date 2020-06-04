@@ -1,10 +1,8 @@
 package com.example.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.JSONObject;
-import com.example.config.UserLoginToken;
+import com.example.config.tokenconfig.UserLoginToken;
 import com.example.entitiy.User;
-import com.example.config.UserLoginToken;
 import com.example.service.TokenService;
 import com.example.service.UserService;
 import org.slf4j.Logger;
@@ -12,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController

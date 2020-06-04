@@ -1,13 +1,13 @@
-package com.example.config;
+package com.example.config.tokenconfig;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-//自定义跳过验证的注解
+//自定义需要登录才能进行操作的注解
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PassToken {
+public @interface UserLoginToken {
     boolean required() default true;
 }
