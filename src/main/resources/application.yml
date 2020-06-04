@@ -11,6 +11,13 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/springboot_test?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
         password: root
+    redis:
+        database: 0
+        host: 127.0.0.1
+        port: 6379
+        password: 123456
+        timeout: 1000ms
+
 #mybatis配置
 mybatis:
     #mapper
