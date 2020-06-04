@@ -13,8 +13,6 @@ import java.security.spec.X509EncodedKeySpec;
  * 中文类名: RSA密码加密工具类
  * 中文描述: RSA密码加密工具类
  *
- * @author zhouxinlei
- * @date 2019-09-11 10:30:43
  */
 public class RSAUtils {
     /**
@@ -33,8 +31,6 @@ public class RSAUtils {
      * 获取密钥对
      *
      * @return java.security.KeyPair
-     * @author zhouxinlei
-     * @date 2019-09-12 15:25:55
      */
     public static KeyPair getKeyPair() throws Exception {
         KeyPairGenerator generator = KeyPairGenerator.getInstance(ALGORITHM_NAME);
@@ -47,8 +43,6 @@ public class RSAUtils {
      *
      * @param privateKey 私钥字符串
      * @return java.security.PrivateKey
-     * @author zhouxinlei
-     * @date 2019-09-12 15:26:15
      */
     public static PrivateKey getPrivateKey(String privateKey) throws Exception {
         KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM_NAME);
@@ -62,8 +56,6 @@ public class RSAUtils {
      *
      * @param publicKey 公钥字符串
      * @return java.security.PublicKey
-     * @author zhouxinlei
-     * @date 2019-09-12 15:26:40
      */
     public static PublicKey getPublicKey(String publicKey) throws Exception {
         KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM_NAME);
@@ -78,8 +70,6 @@ public class RSAUtils {
      * @param data      待加密数据
      * @param publicKey 公钥
      * @return java.lang.String
-     * @author zhouxinlei
-     * @date 2019-09-12 15:27:07
      */
     public static String encrypt(String data, PublicKey publicKey) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITHM_NAME);
@@ -148,8 +138,6 @@ public class RSAUtils {
      * @param data       待签名数据
      * @param privateKey 私钥
      * @return java.lang.String
-     * @author zhouxinlei
-     * @date 2019-09-12 15:24:08
      */
     public static String sign(String data, PrivateKey privateKey) throws Exception {
         byte[] keyBytes = privateKey.getEncoded();
@@ -169,8 +157,6 @@ public class RSAUtils {
      * @param publicKey 公钥
      * @param sign      签名
      * @return boolean 是否验签通过
-     * @author zhouxinlei
-     * @date 2019-09-12 15:23:38
      */
     public static boolean verify(String srcData, PublicKey publicKey, String sign) throws Exception {
         byte[] keyBytes = publicKey.getEncoded();
