@@ -7,6 +7,8 @@ import com.example.entitiy.User;
 import com.example.config.UserLoginToken;
 import com.example.service.TokenService;
 import com.example.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +24,8 @@ public class UserController {
     @Autowired
     private TokenService tokenService;
 
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @RequestMapping("/findAll")
     public List<User> findAll() {
         return userService.findAll();
@@ -33,6 +37,7 @@ public class UserController {
         JSONObject jsonObject=new JSONObject();
         User userForBase=userService.findByUsername(user);
         if(userForBase==null){
+            logger.info("登录失败，用户不存在");
             jsonObject.put("message","登录失败,用户不存在");
             return jsonObject;
         }else {
