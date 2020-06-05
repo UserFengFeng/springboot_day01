@@ -6,6 +6,10 @@ import com.example.entitiy.User;
 import com.example.service.RedisService;
 import com.example.service.TokenService;
 import com.example.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +22,7 @@ import static com.example.utils.RSAUtils.*;
 
 @RestController
 @RequestMapping("/api")
+@Api(tags = "用户管理相关")
 public class UserController extends BaseController {
     @Autowired
     private UserService userService;
@@ -32,12 +37,17 @@ public class UserController extends BaseController {
 
     public static final String PAIRKEY = "PAIRKEY";
 
-    @RequestMapping("/findAll")
+    @ApiOperation("查询所有用户")
+    @GetMapping("/findAll")
     public List<User> findAll() {
         return userService.findAll();
     }
 
-    //    登录
+    @ApiOperation("用户登录")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "username", value = "用户名", defaultValue = "zhou"),
+            @ApiImplicitParam(name = "password", value = "密码", defaultValue = "zhou")
+    })
     @PostMapping("/login")
     public Object login(@RequestBody Map<String, Object> map) throws Exception {
         try {
