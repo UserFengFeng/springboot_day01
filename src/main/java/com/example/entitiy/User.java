@@ -10,6 +10,11 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(Integer id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
     public Integer getId() {
         return id;
     }

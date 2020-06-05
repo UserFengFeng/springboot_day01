@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Base64Utils;
+import org.springframework.util.StringUtils;
 
 import java.security.KeyPair;
 import java.util.HashMap;
@@ -31,10 +32,9 @@ public class MyTest {
         redisService.setHash("ccc", map);
         //多次获取hash
         Map hash = redisService.getHash("ccc");
-        redisService.getHash("ccc");
-        redisService.getHash("ccc");
         if (hash != null) {
-            System.out.println(hash.toString());
+            System.out.println(hash.get("2131"));
+//            System.out.println(hash.toString());
         }
     }
 

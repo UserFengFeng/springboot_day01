@@ -20,7 +20,6 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public Map<Object, Object> getHash(String hashName) {
         if (redisTemplate.hasKey(hashName)) {
-            System.out.println(redisTemplate.opsForHash().entries(hashName));
             return redisTemplate.opsForHash().entries(hashName);
         } else {
             return null;

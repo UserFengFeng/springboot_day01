@@ -102,8 +102,6 @@ public class RSAUtils {
      * @param data       待解密数据
      * @param privateKey 私钥
      * @return java.lang.String
-     * @author zhouxinlei
-     * @date 2019-09-12 15:27:29
      */
     public static String decrypt(String data, PrivateKey privateKey) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITHM_NAME);
